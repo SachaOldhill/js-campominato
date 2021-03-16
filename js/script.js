@@ -1,0 +1,26 @@
+function getRnd(min,max){
+
+  var minRnd = min;
+  var maxRnd = max - minRnd + 1;
+  var rnd = Math.floor(Math.random()*maxRnd) + minRnd;
+  return rnd;
+}
+
+function es1() {
+
+  }
+  var arr = []
+  for (var i = 0; i < 8; i++) {
+  var rnd = getRnd(1,8)
+
+    if(arr.indexOf(rnd) === -1) arr.push(rnd);
+    console.log(arr)
+}
+
+
+function bottone() {
+  var button = document.getElementById('button')
+  button.addEventListener('click', function(){
+
+  })
+}
