@@ -9,9 +9,12 @@ function getRnd(min,max){
 function es1() {
 
   }
+  var arr = []
   for (var i = 0; i < 8; i++) {
-  var rnd = getRnd(1,8);
-console.log(rnd)
+  var rnd = getRnd(1,8)
+
+    arr.push(rnd);
+    console.log(arr)
 }
 
 
