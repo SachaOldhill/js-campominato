@@ -23,9 +23,10 @@ function numPc(rangeMax) {
 
 function numUtente(rangeMax, arrPc) {
   //numeri da inserire per vincere
-  var numDaInserire = rangeMax - arrPc;
+  var numDaInserire = rangeMax - arrPc.length;
+  console.log(numDaInserire);
   var arrUtente = [];
-  while (arrUtente.length<numDaInserire) {
+  while (arrUtente.length < numDaInserire) {
    var numeriInseriti = parseInt(prompt('inserisci un numero'));
 
    if (arrUtente.includes(numeriInseriti) || numeriInseriti < 0 || numeriInseriti > 100) {
@@ -59,9 +60,10 @@ function livello() {
   return rangeMax;
 }
 function es1() {
-  var rangeMax = livello();
-  var mine = numPc(rangeMax);
-  var utente = numUtente(rangeMax, mine);
+  var max = livello();
+  var mine = numPc(max);
+  console.log(max,mine);
+  var utente = numUtente(max, mine);
   if (utente) {
     console.log('hai vinto');
   } else {
