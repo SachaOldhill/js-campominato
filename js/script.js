@@ -6,39 +6,67 @@ function getRnd(min,max){
   return rnd;
 }
 //  Generazione di N numeri casuali
-function rndArr() {
-  var arr = []
+function numPc(rangeMax) {
+  var arrPc = [];
 
-  while (arr.length < 2) {
+  while (arrPc.length < 5) {
 
-    var rnd = getRnd(1,8)
+    var rnd = getRnd(1,rangeMax);
 
-      if (arr.includes(rnd)) {
-        // scartalo;
-      } else {
-        arr.push(rnd)
+      if (!arrPc.includes(rnd)) {
+        arrPc.push(rnd);
       }
    }
-   console.log(arr)
+   console.log(arrPc);
+   return arrPc;
 }
 
-// function sayNumber(rndArr) {
-//   while (arr.length < 8) {
-//       var askNum = parseInt(prompt('digita un numero'));
-//       if (arr.includes(rnd)) {
-//         console.log('End Game')
-//         break
-//       } else if (arr.includes(askNum)) {
-//        console.log('Numero già inserito, ricomincia da capo')
-//      } else {
-//        askNum
-//      }
-//    } console.log(arr)
-//   }
+function numUtente(rangeMax, arrPc) {
+  //numeri da inserire per vincere
+  var numDaInserire = rangeMax - arrPc;
+  var arrUtente = [];
+  while (arrUtente.length<numDaInserire) {
+   var numeriInseriti = parseInt(prompt('inserisci un numero'));
 
+   if (arrUtente.includes(numeriInseriti) || numeriInseriti < 0 || numeriInseriti > 100) {
+     alert('numero non valido')
+   } else {
+     if (arrPc.includes(numeriInseriti)) {
+       console.log('game over')
+       return false;
+     } else {
+       arrUtente.push(numeriInseriti);
+     }
+   }
+   console.log(arrUtente);
+  }
+  return true;
+  }
+
+function livello() {
+  var lvl = parseInt(prompt('scegli un livello'))
+  switch(lvl){
+    case 0 :
+    var rangeMax = 15;
+    break;
+    case 1 :
+    var rangeMax = 20;
+    break;
+    case 2 :
+    var rangeMax = 25;
+    break;
+  }
+  return rangeMax;
+}
 function es1() {
-
-
+  var rangeMax = livello();
+  var mine = numPc(rangeMax);
+  var utente = numUtente(rangeMax, mine);
+  if (utente) {
+    console.log('hai vinto');
+  } else {
+    console.log('hai perso');
+  }
 
 }
 
